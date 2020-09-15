@@ -6,7 +6,7 @@ namespace Domain
     public class CircularEnumerator<T> : IEnumerator
     {
         private T[] _array { get; set; }
-        public CircularEnumerator(Array array)
+        public CircularEnumerator(T t, Array array)
         {
             throw new NotImplementedException();
 
