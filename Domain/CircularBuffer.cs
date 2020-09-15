@@ -35,9 +35,11 @@ namespace Domain
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetIterator()
+        public IEnumerable GetIterator() 
         {
             throw new System.NotImplementedException();
         }
+        // to implement foreach, we need a public definition of GetEnumerator
+        // We need a class that implements the IEnumerator interface, which means implementing IEnumerator.Current, MoveNext(), Reset()
     }
 }

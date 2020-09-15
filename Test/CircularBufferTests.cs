@@ -60,9 +60,49 @@ namespace Test
         }
 
         [Fact]
+        public void TestLoopBackAfterAdd()
+        {
+            // arrange
+            
+            // act
+            
+            // assert
+        }
+
+        [Fact]
+        public void TestReadEmptyBuffer()
+        {
+            // arrange
+            
+            // act
+            
+            // assert
+        }
+
+        [Fact]
         public void TestReadfromBuffer()
         {
             
+        }
+
+        [Fact]
+        public void TestRepeatableReadfromBuffer()
+        {
+            // arrange
+            
+            // act
+            
+            // assert
+        }
+
+        [Fact]
+        public void TestRepeatableReadAfterAdding()
+        {
+            // arrange
+            
+            // act
+            
+            // assert
         }
 
         [Fact]
@@ -73,6 +113,13 @@ namespace Test
             // {
                 
             // }
+            
+            // arrange
+            
+            // act
+            
+            // assert
+            throw new System.NotImplementedException();
         }
     }
 }
