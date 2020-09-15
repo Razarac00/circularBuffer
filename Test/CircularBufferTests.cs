@@ -47,6 +47,7 @@ namespace Test
         [InlineData('#')]
         public void TestAddtoBuffer(char x)
         {
+            // arrange
             CircularBuffer c = new CircularBuffer();
 
             // act
