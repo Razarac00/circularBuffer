@@ -7,10 +7,12 @@ namespace Domain
     public class CircularBuffer<T>
     {
 
-        T _value;
         private int _defaultsize = 7;
         private int _defaultMinSize = 1;
         private int _defaultMaxSize = 1000000;
+
+        private int current = 0;
+        private int oldest = 0;
 
         public T[] buffer { get; private set; }
         public int size { get; private set; }
@@ -32,9 +34,9 @@ namespace Domain
             buffer = new T[this.size];
         }
 
-        public void AddtoBuffer(char x)
+        public void AddtoBuffer(T t)
         {
-            throw new NotImplementedException();
+            buffer[current] = t;
         }
 
         public char ReadfromBuffer()
