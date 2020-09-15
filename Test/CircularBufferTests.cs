@@ -62,13 +62,17 @@ namespace Test
         [Fact]
         public void TestReadfromBuffer()
         {
-            throw new NotImplementedException();
+            
         }
 
         [Fact]
         public void TestGetIterator()
         {
-            throw new System.NotImplementedException();
+            // char[] c = new char[] {'a', 'b'};
+            // foreach (var item in c)
+            // {
+                
+            // }
         }
     }
 }
