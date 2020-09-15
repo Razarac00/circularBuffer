@@ -35,7 +35,7 @@ namespace Domain
             throw new NotImplementedException();
         }
 
-        public IEnumerable GetIterator() 
+        public IEnumerator GetEnumerator() 
         {
             throw new System.NotImplementedException();
         }

@@ -63,63 +63,105 @@ namespace Test
         public void TestLoopBackAfterAdd()
         {
             // arrange
-            
+            CircularBuffer<char> c = new CircularBuffer<char>(2);
+
             // act
-            
+            c.AddtoBuffer('a');
+            c.AddtoBuffer('b');
+            c.AddtoBuffer('c');
+
             // assert
+            Assert.False(Array.Exists<char>(c.buffer, element => element == 'a'));
+            Assert.True(Array.Exists<char>(c.buffer, element => element == 'b'));
+            Assert.True(Array.Exists<char>(c.buffer, element => element == 'c'));
         }
 
         [Fact]
         public void TestReadEmptyBuffer()
         {
             // arrange
-            
+            CircularBuffer<char> c = new CircularBuffer<char>(2);
+
             // act
-            
+            //char expected = null;
+
             // assert
+            Assert.Throws<IndexOutOfRangeException>(() => c.ReadfromBuffer());
         }
 
         [Fact]
         public void TestReadfromBuffer()
         {
-            
+            // arrange
+            CircularBuffer<char> c = new CircularBuffer<char>(2);
+
+            // act
+            c.AddtoBuffer('a');
+            c.AddtoBuffer('b');
+            char expected = 'a';
+
+            // assert
+            Assert.Equal(c.ReadfromBuffer(), expected);
         }
 
         [Fact]
         public void TestRepeatableReadfromBuffer()
         {
             // arrange
-            
+            CircularBuffer<char> c = new CircularBuffer<char>(2);
+
             // act
-            
+            c.AddtoBuffer('a');
+            c.AddtoBuffer('b');
+            char expected = 'a';
+
             // assert
+            Assert.Equal(c.ReadfromBuffer(), expected);
+            Assert.Equal(c.ReadfromBuffer(), expected);
         }
 
         [Fact]
         public void TestRepeatableReadAfterAdding()
         {
             // arrange
-            
+            CircularBuffer<char> c = new CircularBuffer<char>(3);
+
             // act
-            
+            c.AddtoBuffer('a');
+            c.AddtoBuffer('b');
+            char expected = 'a';
+            char firstResult = c.ReadfromBuffer();
+            c.AddtoBuffer('c');
+
+
             // assert
+            Assert.Equal(firstResult, expected);
+            Assert.Equal(c.ReadfromBuffer(), expected);
         }
 
         [Fact]
         public void TestGetIterator()
         {
-            // char[] c = new char[] {'a', 'b'};
-            // foreach (var item in c)
-            // {
-                
-            // }
-            
             // arrange
-            
+            CircularBuffer<char> c = new CircularBuffer<char>(3);
+            char[] actualArray = new char[] { };
+            int counter = 0;
+
             // act
-            
+            c.AddtoBuffer('a');
+            c.AddtoBuffer('b');
+            char expected1 = 'a';
+            char expected2 = 'b';
+
+            foreach (char item in c)
+            {
+                actualArray[counter] = item;
+                counter++;
+            }
+
             // assert
-            throw new System.NotImplementedException();
+            Assert.Equal(actualArray[0], expected1);
+            Assert.Equal(actualArray[1], expected2);
         }
     }
 }
