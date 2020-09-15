@@ -20,15 +20,10 @@ namespace Test
         }
 
         [Theory]
-        [InlineData(0)]
         [InlineData(1)]
-        [InlineData(-1)]
-        [InlineData(999)]
         [InlineData(1000)]
-        [InlineData(1001)]
-        [InlineData(Int32.MaxValue)]
-        [InlineData(Int32.MinValue)]
-        public void TestCircularBufferWithSizes(int data)
+        [InlineData(1000000)]
+        public void TestCircularBufferWithGoodSizes(int data)
         {
             // arrange
             CircularBuffer<int> c = new CircularBuffer<int>(data);
@@ -38,6 +33,19 @@ namespace Test
 
             // assert
             Assert.Equal(realSize, data);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        [InlineData(1000001)]
+        [InlineData(Int32.MinValue)]
+        [InlineData(Int32.MaxValue)]
+        public void TestCircularBufferWithBadSizes(int data)
+        {
+
+            // assert
+            Assert.Throws<IndexOutOfRangeException>(() => new CircularBuffer<int>(data));
         }
 
         [Theory]

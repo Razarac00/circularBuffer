@@ -9,20 +9,27 @@ namespace Domain
 
         T _value;
         private int _defaultsize = 7;
+        private int _defaultMinSize = 1;
+        private int _defaultMaxSize = 1000000;
 
-        public T[] buffer { get; }
-        public int size { get; }
+        public T[] buffer { get; private set; }
+        public int size { get; private set; }
 
         public CircularBuffer()
         {
             this.size = _defaultsize;
-            throw new NotImplementedException();
+            buffer = new T[this.size];
         }
 
         public CircularBuffer(int size)
         {
+            if (size < _defaultMinSize || size > _defaultMaxSize) 
+            {
+                throw new IndexOutOfRangeException();
+            }
+
             this.size = size;
-            throw new NotImplementedException();
+            buffer = new T[this.size];
         }
 
         public void AddtoBuffer(char x)
