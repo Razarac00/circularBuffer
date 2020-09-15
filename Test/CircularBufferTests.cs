@@ -91,7 +91,6 @@ namespace Test
             CircularBuffer<char> c = new CircularBuffer<char>(2);
 
             // act
-            //char expected = null;
 
             // assert
             Assert.Throws<IndexOutOfRangeException>(() => c.ReadfromBuffer());
@@ -109,7 +108,7 @@ namespace Test
             char expected = 'a';
 
             // assert
-            Assert.Equal(c.ReadfromBuffer(), expected);
+            Assert.Equal(expected, c.ReadfromBuffer());
         }
 
         [Fact]

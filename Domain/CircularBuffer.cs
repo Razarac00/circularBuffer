@@ -37,6 +37,15 @@ namespace Domain
         public void AddtoBuffer(T t)
         {
             buffer[current] = t;
+            if (current < size)
+            {
+                current++;
+            }
+            else if (current == size)
+            {
+                current = 0;
+            }
+            
         }
 
         public char ReadfromBuffer()
