@@ -8,24 +8,22 @@ namespace Domain
     {
 
         T _value;
-        //private Array<T> dafsd;
+        private int _defaultsize = 7;
 
-        public List<T> buffer { get; }
+        public T[] buffer { get; }
+        public int size { get; }
 
-        public CircularBuffer(T t)
+        public CircularBuffer()
         {
-            this.size = 7;
+            this.size = _defaultsize;
             throw new NotImplementedException();
         }
 
-        public CircularBuffer(T t, int size)
+        public CircularBuffer(int size)
         {
-            this._value = t;
             this.size = size;
             throw new NotImplementedException();
         }
-
-        public int size { get; }
 
         public void AddtoBuffer(char x)
         {
