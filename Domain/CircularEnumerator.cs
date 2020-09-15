@@ -3,9 +3,10 @@ using System.Collections;
 
 namespace Domain
 {
-    public class CircularEnumerator : IEnumerator
+    public class CircularEnumerator<T> : IEnumerator
     {
-        public CircularEnumerator()
+        private T[] _array { get; set; }
+        public CircularEnumerator(Array array)
         {
             throw new NotImplementedException();
 
