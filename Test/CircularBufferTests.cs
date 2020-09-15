@@ -10,12 +10,13 @@ namespace Test
         public void TestCircularBufferDefault()
         {
             // arrange
-            CircularBuffer c = new CircularBuffer();
+            CircularBuffer<char> c = new CircularBuffer<char>();
 
             // act
-
+            bool is7= (7 == c.size);
 
             // assert
+            Assert.True(is7);
         }
 
         [Theory]
@@ -30,12 +31,13 @@ namespace Test
         public void TestCircularBufferWithSizes(int data)
         {
             // arrange
-            CircularBuffer c = new CircularBuffer(data);
+            CircularBuffer<int> c = new CircularBuffer<int>(data);
 
             // act
-
+            int realSize = c.size;
 
             // assert
+            Assert.Equal(realSize, data);
         }
 
         [Theory]
@@ -48,13 +50,13 @@ namespace Test
         public void TestAddtoBuffer(char x)
         {
             // arrange
-            CircularBuffer c = new CircularBuffer();
+            CircularBuffer<char> c = new CircularBuffer<char>();
 
             // act
             c.AddtoBuffer(x);
 
             // assert
-            
+            Assert.True(Array.Exists<char>(c.buffer, element => element == x));
         }
 
         [Fact]
