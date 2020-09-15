@@ -1,19 +1,31 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Domain
 {
-    public class CircularBuffer
+    public class CircularBuffer<T>
     {
-        public CircularBuffer()
+
+        T _value;
+        //private Array<T> dafsd;
+
+        public List<T> buffer { get; }
+
+        public CircularBuffer(T t)
         {
+            this.size = 7;
             throw new NotImplementedException();
         }
 
-        public CircularBuffer(int size)
+        public CircularBuffer(T t, int size)
         {
+            this._value = t;
+            this.size = size;
             throw new NotImplementedException();
         }
+
+        public int size { get; }
 
         public void AddtoBuffer(char x)
         {
