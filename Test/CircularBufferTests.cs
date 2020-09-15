@@ -57,9 +57,39 @@ namespace Test
         }
 
         [Fact]
+        public void TestLoopBackAfterAdd()
+        {
+        // arrange
+        
+        // act
+        
+        // assert
+        }
+
+        [Fact]
         public void TestReadfromBuffer()
         {
             throw new NotImplementedException();
+        }
+
+        [Fact]
+        public void TestRepeatableReadfromBuffer()
+        {
+        // arrange
+        
+        // act
+        
+        // assert
+        }
+
+        [Fact]
+        public void TestRepeatableReadAfterAdding()
+        {
+        // arrange
+        
+        // act
+        
+        // assert
         }
 
         [Fact]
